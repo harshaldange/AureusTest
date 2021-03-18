@@ -23,6 +23,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class UserEntity {
 	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="user_id")
@@ -39,16 +41,19 @@ public class UserEntity {
 	@Column(name="state")
 	private String state;
 	
+	//returns string in simple date format
 	public String toStringDate()
 	{
 		return firstName+":"+lastName+":"+new SimpleDateFormat("yyyy-MM-dd").format(dateOfBirth)+":"+city+":"+state;
 	}
 	
+	//returns string in yyyy-MM-dd HH:mm:ss format
 	public String toStringDateTime1()
 	{
 		return firstName+":"+lastName+":"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(dateOfBirth)+":"+city+":"+state;
 	}
 	
+	//returns string in yyyy-MM-dd HH:mm format
 	public String toStringDateTime2()
 	{
 		return firstName+":"+lastName+":"+new SimpleDateFormat("yyyy-MM-dd HH:mm").format(dateOfBirth)+":"+city+":"+state;
