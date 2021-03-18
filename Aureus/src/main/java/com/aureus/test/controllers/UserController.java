@@ -53,7 +53,8 @@ public class UserController {
 	{
 		logger.info("User is getting added");
 		try {
-		return userService.saveUser(user).toStringDate();
+			userService.saveUser(user);
+			return "User is added succesfully";
 		}
 		catch(Exception e)
 		{
@@ -67,6 +68,7 @@ public class UserController {
 	{
 		try {
 		logger.info("adding multiple users");
+		userService.saveAllUsers(users);
 		return "Users Are added";
 		}
 		catch(Exception e)
